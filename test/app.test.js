@@ -94,7 +94,7 @@ describe("Testing User Functionalities", () => {
     );
   });
 
-  afterAll(() => {
+  /* afterAll(() => {
     mongoose.connection.collections["users"].drop(function (err) {
       console.log("collection dropped");
     });
@@ -105,7 +105,7 @@ describe("Testing User Functionalities", () => {
     mongoose.connection.collections["filemodels"].drop(function (err) {
       console.log("collection dropped");
     });
-  });
+  }); */
 });
 
 describe("Testing files functionalities", () => {
@@ -113,15 +113,12 @@ describe("Testing files functionalities", () => {
 
   beforeAll(async () => {
     const userData = {
-      name: "John Doe",
       email: "doe@example.com",
-      phone: "22222123",
-      class: "INDP1 A",
       password: "demo12345",
     };
 
     const response = await request
-      .post("/api/register")
+      .post("/api/login")
       .set("Content-Type", "application/json")
       .set("Accept", "application/json")
       .send(userData);
